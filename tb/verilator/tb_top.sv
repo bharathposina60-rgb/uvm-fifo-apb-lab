@@ -181,9 +181,7 @@ module tb_top;
     PENABLE = 1'b1;
     @(posedge clk);
     // 0-wait slave keeps PREADY high; loop is for APB3 shape / future wait-states.
-    /* verilator lint_off UNUSEDLOOP */
     while (!PREADY) @(posedge clk);
-    /* verilator lint_on UNUSEDLOOP */
     rdat   = PRDATA;
     slverr = PSLVERR;
     @(negedge clk);
